@@ -166,6 +166,11 @@ console.log(g.a); // ???
 * 6 kiểu nguyên thủy: number,string,boolean,null,undefined,symbol.
 * object có sẵn như: math, date. 
 ### Có những cách nào để clone 1 object ?
+* Trong ES6 có method Object.assign(), nó sẽ sao chép tất cả thuộc tính đếm được mà nó sở hữu từ object này qua object khác
+```
+var x = {myProp: "value"};
+var y = Object.assign({}, x);
+```
 ## 1.3 Iteration
 ### Có những cách nào để duyệt các phần tử trong 1 array ? Viết code ví dụ
 * duyệt theo index: arr[i], i là vị trí phần tử trong array bắt đầu từ 0
