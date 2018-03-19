@@ -23,6 +23,7 @@ console.log(f.count); // ???
 ```
 ### Cách hiểu 2: this trỏ tới scope của function, đúng hay sai?
 * g() là method của hàm f() => this là của global(window)
+* vì vậy this sẽ undefined vì không thể tìm thấy biến a ở window => typeError
 
 ```
 function f() {
