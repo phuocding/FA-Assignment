@@ -1,7 +1,7 @@
 # 1 this & Object prototype
 ## 1.1 this
 ### this là một trong những cơ chế gây rối nhất trong JS, theo em this là gì ?
-* This là từ khóa trỏ tới object hoặc thẻ html nếu nó được đặt trong 1 callback function
+* This là từ khóa trỏ tới object nơi hàm được gọi, và nó tùy thuộc vào cách mình gọi hàm.
 ### Cách hiểu 1: this trỏ tới function f, đúng hay sai?
 * Sai vì nó trỏ tới window, vì theo cách gọi hàm trực tiếp => this trỏ tới global(window)
 
@@ -162,8 +162,8 @@ console.log(g.a); // ???
 * This là từ khóa tham chiếu đến đối tượng, và nó thay đổi theo cách gọi function()
 ## 1.2 Objects
 ###Liệt kê lại 6 kiểu nguyên thuỷ trong JS ? liệt kê những kiểu Object có sẵn trong JS?
-6 kiểu nguyên thủy: number,string,boolean,array,null,object
-number object, string object, array object, date object
+* 6 kiểu nguyên thủy: number,string,boolean,null,undefined,symbol.
+* object có sẵn như: math, date. 
 ### Có những cách nào để clone 1 object ?
 ## 1.3 Iteration
 ### Có những cách nào để duyệt các phần tử trong 1 array ? Viết code ví dụ
@@ -198,7 +198,7 @@ console.log(item, index );
 
 ## 1.5 Prototypes
 ### Xem xét đoạn code sau, em có nhận xét gì ?
-### create() là định dạng 1 method của object như được khởi tạo trước, mình chỉ việc gọi nó ra
+* create() là định dạng 1 method của object như được khởi tạo trước, mình chỉ việc gọi nó ra
 ```
 var o1 = {
   a: 2
@@ -212,5 +212,5 @@ o1.a = 10;
 console.log(o2.a); // ??
 ```
 
-Tìm hiểu về Oject.prototype
-prototype là nơi lưu trữ các property và method của chính object sở hữu nó.
+### Tìm hiểu về Oject.prototype
+* prototype là nơi lưu trữ các property và method của chính object sở hữu nó.
