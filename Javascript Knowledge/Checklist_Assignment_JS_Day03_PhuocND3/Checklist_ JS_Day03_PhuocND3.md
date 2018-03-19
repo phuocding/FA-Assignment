@@ -3,7 +3,7 @@
 ### this là một trong những cơ chế gây rối nhất trong JS, theo em this là gì ?
 * This là từ khóa trỏ tới object hoặc thẻ html nếu nó được đặt trong 1 callback function
 ### Cách hiểu 1: this trỏ tới function f, đúng hay sai?
-* Sai vì nó trỏ tới window
+* Sai vì nó trỏ tới window, vì theo cách gọi hàm trực tiếp => this trỏ tới global(window)
 
 ```
 function f(num) {
@@ -22,7 +22,7 @@ f(5);
 console.log(f.count); // ???
 ```
 ### Cách hiểu 2: this trỏ tới scope của function, đúng hay sai?
-* g() là method của hàm f() => this là của global scope
+* g() là method của hàm f() => this là của global(window)
 
 ```
 function f() {
@@ -35,7 +35,14 @@ function g() {
 }
 
 f();
-So sánh các dạng gọi hàm như code:
+```
+
+### So sánh các dạng gọi hàm như code:
+* theo cahs 1 thì this nó trỏ tới global(window)
+* theo cách gọi 2 thì this trỏ tới object chứa nó
+* theo cách gọi 3 sử dụng build-in method thì this chính là tham số đầu tiên của hàm.
+* cách 4 mình tạo mới object và gọi nó, thì this chính là object vừa mới tạo
+```
 function fn() {
 }
 
@@ -66,7 +73,7 @@ f(); // ??
 ```
 
 ### Cho đoạn code sau, kết quả in ra là gì ?
-* Mặc dù không sai thuy nhiên đang ở Strict Mode nên việc dùng this trong trường hợp này nó sẽ về dạng undefied => undefied.b => typeError
+* Mình đang ở Strict Mode nên việc dùng this trong trường hợp này nó sẽ về dạng undefied => undefied.b => typeError
 
 ```
 function g() {
@@ -81,7 +88,6 @@ g(); // ??
 
 ### Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
 * In ra a = 2
-* Hoisting, khai báo hàm f() và chạy hàm f()
 ### This ở đây là đối tượng o()
 ```
 function f() {
@@ -97,7 +103,7 @@ o.f(); // ??
 ```
 
 ### Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
-
+* in ra 2, hàm gọi theo phương thức thông qua object, this trỏ tới object o
 ```
 function f() {
   console.log(this.a);
@@ -114,7 +120,10 @@ g(); // ??
 ```
 
 ### Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
-
+* in ra 2,2
+* hàm gọi qua build-in method
+* gọi hàm g() lỗi g not a function vì g được gán với giá trị của f.apply(o) vừa thực thi.
+* this trỏ tới object o(thông số đầu tiên của method)
 ```
 function f() {
   console.log(this.a);
@@ -124,16 +133,16 @@ var o = {
   a: 2
 };
 
-var g = f.apply(o);
+var g = f.apply(o); //in ra 2
 
-f.call(o); // ??
+f.call(o); // ?? //in ra 2
 g(); // ??
 ```
 
 ### Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
-a =2
-Assign a = a của f()
-This là window
+* a = 2
+* Ahàm gọi theo constructor
+* This trỏ tới object g vừa tạo
 
 ```
 function f(a) {
@@ -153,7 +162,7 @@ console.log(g.a); // ???
 * This là từ khóa tham chiếu đến đối tượng, và nó thay đổi theo cách gọi function()
 ## 1.2 Objects
 ###Liệt kê lại 6 kiểu nguyên thuỷ trong JS ? liệt kê những kiểu Object có sẵn trong JS?
-6 kiểu nguyên thủy: number,string,boolean,array,null,undefined
+6 kiểu nguyên thủy: number,string,boolean,array,null,object
 number object, string object, array object, date object
 ### Có những cách nào để clone 1 object ?
 ## 1.3 Iteration
