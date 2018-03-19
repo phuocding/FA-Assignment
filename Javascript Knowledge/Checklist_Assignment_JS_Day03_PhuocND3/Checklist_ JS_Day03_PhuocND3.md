@@ -73,7 +73,7 @@ f(); // ??
 ```
 
 ### Cho đoạn code sau, kết quả in ra là gì ?
-* Mình đang ở Strict Mode nên việc dùng this trong trường hợp này nó sẽ về dạng undefied => undefied.b => typeError
+* Mình đang ở Strict Mode nên việc dùng this trong trường hợp này nó sẽ về dạng undefined => undefined.b => typeError
 
 ```
 function g() {
