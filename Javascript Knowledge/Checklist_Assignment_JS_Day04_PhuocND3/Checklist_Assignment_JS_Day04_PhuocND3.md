@@ -47,10 +47,10 @@ Tìm hiểu về Event loop, và giải thích lại đoạn code trên theo ý 
 <p>Callbacks() có thể được khởi tạo ở bất cứ đâu bằng cách truyền 1 function có tên vào làm đối số của hàm mà nó được gọi bên trong</p>
 
 - Người ta nói callback functions đóng gói tính liên tục của chương trình. Theo em chương trình dưới sẽ được chạy liên tục ra sao? Ví dụ
-<p></p>
+<p>Vì trong setTimeout có anynomous function => đưa vào callbacks queue -> được event loop đưa qua stack để thực thi</p>
+(1) => (3) => (2)
 
 ```
-(1) => (2) => (3)
 // (1)
 setTimeout(function () {
   // (2)
@@ -60,6 +60,7 @@ setTimeout(function () {
 
 #### 1.4.1 Nested/Chained Callbacks
 Set đoạn code sau, khi người dùng click vào btn thì điều gì xảy ra?
+<p>(0) se thuc thi ngay lap tuc => khi click (1) ->((3)->(2))</p>
 ```
 // (0)
 var btn = document.getElementById('btn');
@@ -72,7 +73,8 @@ btn.addEventListener('click', function () {
 });
 ```
 
-Theo eo những điểu bất lợi của callbacks là gì ? liên quan đến: code readability, code security, handle errors code, code reusability
++ Theo em những điểu bất lợi của callbacks là gì ? liên quan đến: code readability, code security, handle errors code, code reusability
+  - callback hell 
 ### 1.5 Promises
 [Tìm hiểu về Promises: ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 What is a future value ?
