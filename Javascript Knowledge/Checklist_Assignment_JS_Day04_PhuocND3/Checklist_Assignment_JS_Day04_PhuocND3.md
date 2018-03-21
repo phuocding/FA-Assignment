@@ -77,12 +77,15 @@ btn.addEventListener('click', function () {
   - callback hell 
 ### 1.5 Promises
 [Tìm hiểu về Promises: ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-What is a future value ?
-Promise value ?
-Promise Events ?
-How to get Promise value?
-How to handle error in Promise ?
-How to chain Promises ?
-Promise.all
-Promise.race
-finally
+- What is a future value ?
+- Promise value ?
+- Promise Events ?
+- How to get Promise value?
+- How to handle error in Promise ?
+- How to chain Promises ?
+  - *Xử lý chuỗi thông qua hàm Promise.prototype.catch() cho th failed hoặc Promise.prototype.then() cho th success*
+- Promise.all
+  - *hàm Promise.all(iterable) trả về 1 Promise đại diện mảng chứa value của tất cả Promise thực thi thành công, và khi lỗi trả về error state và nơi chưa lỗi của Promise đầu tiên gây lỗi*
+- Promise.race
+  - *hàm Promise.race(iterable) trả về Promise mới chứa kết quả của promise kết thúc xử lí đầu tiên dù lỗi hay không.* 
+- finally
