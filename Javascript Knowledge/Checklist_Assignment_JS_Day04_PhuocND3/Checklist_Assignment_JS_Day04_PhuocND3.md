@@ -39,7 +39,7 @@ console.log('Hi again');
 
 ### 1.3 Event Loop
 Tìm hiểu về Event loop, và giải thích lại đoạn code trên theo ý hiểu của em. [Reference: Philip Roberts: What the heck is the event loop anyway? | JSConf EU 2014](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
-<p>Vòng lặp lấy từng message yêu cầu trong queue và đưa đi xử lí, xử lí xong lại lặp lại chu kì như vậy</p>
+  > **Even loop** *có nhiệm vụ như cô y tá, đọc tên người đi khám bệnh, đưa người đó vào phòng khám, người bệnh khám xong thì lại ra gọi người tiếp theo.*
 
 ### 1.4 Callbacks
 - Tìm hiểu về callback funtions trong JS: [Callbacks function](https://www.sitepoint.com/callbacks-javascript/)
@@ -89,3 +89,4 @@ btn.addEventListener('click', function () {
 - Promise.race
   - *hàm Promise.race(iterable) trả về Promise mới chứa kết quả của promise kết thúc xử lí đầu tiên dù lỗi hay không.* 
 - finally
+  - ** 
