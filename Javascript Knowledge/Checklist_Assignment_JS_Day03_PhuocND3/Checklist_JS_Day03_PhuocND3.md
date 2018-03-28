@@ -5,7 +5,7 @@
 ### Cách hiểu 1: this trỏ tới function f, đúng hay sai?
 * Sai vì nó trỏ tới window, vì theo cách gọi hàm trực tiếp => this trỏ tới global(window)
 
-```
+```Javascript
 function f(num) {
   console.log("f: " + num);
   this.count++; // ghi lại gía trị đếm hàm f được gọi bao nhiêu lần
@@ -25,7 +25,7 @@ console.log(f.count); // ???
 * g() là method của hàm f() => this là của global(window)
 * vì vậy this sẽ undefined vì không thể tìm thấy biến a ở window => typeError
 
-```
+```Javascript
 function f() {
   var a = 2;
   this.g();
@@ -43,7 +43,7 @@ f();
 * theo cách gọi 2 thì this trỏ tới object chứa nó
 * theo cách gọi 3 sử dụng build-in method thì this chính là tham số đầu tiên của hàm.
 * cách 4 mình tạo mới object và gọi nó, thì this chính là object vừa mới tạo
-```
+```Javascript
 function fn() {
 }
 
@@ -63,7 +63,7 @@ new fn(); // cách gọi 4
 ### Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
 * This ở đây chính là window, không cần khai báo this cũng được
 
-```
+```Javascript
 function f() {
   console.log(this.a);
 }
@@ -76,7 +76,7 @@ f(); // ??
 ### Cho đoạn code sau, kết quả in ra là gì ?
 * Mình đang ở Strict Mode nên việc dùng this trong trường hợp này nó sẽ về dạng undefined => undefined.b => typeError
 
-```
+```Javascript
 function g() {
   "use strict";
   console.log(this.b);
@@ -90,7 +90,7 @@ g(); // ??
 ### Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
 * In ra a = 2
 ### This ở đây là đối tượng o()
-```
+```Javascript
 function f() {
   console.log(this.a);
 }
@@ -105,7 +105,7 @@ o.f(); // ??
 
 ### Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
 * in ra 2, hàm gọi theo phương thức thông qua object, this trỏ tới object o
-```
+```Javascript
 function f() {
   console.log(this.a);
 }
@@ -125,7 +125,7 @@ g(); // ??
 * hàm gọi qua build-in method
 * gọi hàm g() lỗi g not a function vì g được gán với giá trị của f.apply(o) vừa thực thi.
 * this trỏ tới object o(thông số đầu tiên của method)
-```
+```Javascript
 function f() {
   console.log(this.a);
 }
@@ -145,7 +145,7 @@ g(); // ??
 * Ahàm gọi theo constructor
 * This trỏ tới object g vừa tạo
 
-```
+```Javascript
 function f(a) {
   this.a = a;
 }
@@ -170,7 +170,7 @@ console.log(g.a); // ???
 * parse(JSON.stringtify(obj));
 
 * Trong ES6 có method Object.assign(), nó sẽ sao chép tất cả thuộc tính đếm được mà nó sở hữu từ object này qua object khác
-```
+```Javascript
 var x = {myProp: "value"};
 var y = Object.assign({}, x);
 ```
@@ -178,7 +178,7 @@ var y = Object.assign({}, x);
 ### Có những cách nào để duyệt các phần tử trong 1 array ? Viết code ví dụ
 * duyệt theo index: arr[i], i là vị trí phần tử trong array bắt đầu từ 0
 * dùng vòng lặp: for, while, do while, map
-```
+```Javascript
 fruits.forEach (function (item, index, array ( {
 
 console.log(item, index );
@@ -202,7 +202,7 @@ console.log(item, index );
 ## 1.5 Prototypes
 ### Xem xét đoạn code sau, em có nhận xét gì ?
 * create() đang tạo đối tượng o2 kế thừa o1 thông qua protoype tên là create
-```
+```Javascript
 var o1 = {
   a: 2
 }

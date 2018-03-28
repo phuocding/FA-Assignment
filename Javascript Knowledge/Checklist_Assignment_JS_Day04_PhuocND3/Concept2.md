@@ -2,7 +2,7 @@
 
 - mặc định sau return sẽ có một dấu ";" để kết thúc dòng lệnh
 
-```
+```Javascript
 function foo1()
 {
   return {
@@ -20,7 +20,7 @@ function foo2()
 ```
 ### Exp ve operator
 
-```
+```Javascript
 console.log(0.1 + 0.2 == 0.3); 
 // trả về false
 // vì giá trị của 0.1+0.2 = 0.30000000000000004;
@@ -29,7 +29,7 @@ console.log(0.1 + 0.2 == 0.3);
 
 ### Callbacks thong qua setTimeout()
 
-```
+```Javascript
 (function() {
     console.log(1); 
     setTimeout(function(){console.log(2)}, 1000); 
@@ -46,7 +46,7 @@ console.log(0.1 + 0.2 == 0.3);
 ### Closure
 - Một closure có khả năng nhớ được scope cha của nó, kể cả khi nó được gọi bên ngoài scope của hàn cha đó
 
-```
+```Javascript
 // Dùng closure để thực thi với for loop ra các giá trị liên tiếp
 // for (var i = 0; i < 5; i++) {
 //	setTimeout(function() { console.log(i); }, i * 1000 );

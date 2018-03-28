@@ -1,7 +1,7 @@
 # Synchromous & Asynchronous
 ***
 ## AJAX(Asychronous Javascript and XML)
-```
+```Javascript
 var listCountry;
 $("#btnGetData).click(function(){
     $.ajax({

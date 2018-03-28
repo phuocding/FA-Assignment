@@ -5,13 +5,13 @@ syntax là là cú pháp câu lệnh được định nghĩa sẵn.
 statement (câu lệnh) là công việc có nhiệm vụ thực thi thông qua trình duyệt.
 Giải thích câu lệnh sau:
 a là kết quả của phép tính b + 2 => bắt trình duyệt hiểu.
-```
+```Javascript
 a = b + 2;
 ```
 # 3 Expressions
 expression (biểu thức) là tập hợp của nhiều toán tử, literals và variable. Nó trả về giá trị, khác với statements có thể trả về hoặc không.
 Câu lệnh sau có bao nhiêu biểu thức: 1
-```
+```Javascript
 a = b * 2;
 ```
 # 4 Executing a Program
@@ -27,7 +27,7 @@ Cái này là biên dịch, tức dịch tất tần tật mọi thứ rồi m�
 
 JS là dạng interpreted.
 Sử dụng Developer Tools của Google Chrome hoặc Firefox để chạy chương trình sau:
-```
+```Javascript
 a = 21;
 
 b = a * 2;
@@ -53,7 +53,7 @@ Array: var a = [1,2,3]
 Object: var Class = {grade: 01, name: "Nodejs", place: "Hanoi"}
 Undefined: var a hoặc assign a = undefined;
 Thay xxx bằng operator để xác định kiểu của dữ liệu trong JS ?
-```
+```Javascript
 a = "hello";
 typeof(a); // "string"
 
@@ -81,7 +81,7 @@ Truy xuất dữ liệu:
 Property: Object.property hoặc Object["property"]
 Method: Object.method()
 Cho đoạn code sau, chỉ rõ gía trị của ??? là gì
-```
+```Javascript
 var o = {
   a: 'hello',
   b: 10,
@@ -103,7 +103,7 @@ o[k]; // ???
 # 8 Arrays
 Arrays là gì ? làm sao tạo 1 array [1, 2, 3];
 Cho đoạn code sau, chỉ rõ gía trị của ??? là gì
-```
+```Javascript
 var a = [
   'hello',
   10,
@@ -126,7 +126,7 @@ Có những cách nào để định nghĩa functions ? so sánh?
 Functional Statement: function Abc(params){}
 Functional Expression: var Abc = function(params) {}
 Cho đoạn code sau, chỉ rõ gía trị của ??? là gì
-```
+```Javascript
 function f() {
   return 10;
 }
@@ -143,7 +143,7 @@ Cho đoạn code sau, chạy trên Console của Chrome, theo em length, toUpper
 length: là thuộc tính tìm ra độ dài của chuỗi, mảng, ...
 toUpperCase() là hàm tự động viết in hoa toàn bộ chuỗi
 toFixed() là hàm làm tròn số với phần thập phân là param của hàm toFixed()
-```
+```Javascript
 var a = 'hello';
 var b = 123;
 
@@ -163,7 +163,7 @@ Cho đoạn code sau, chạy trên Console của Chrome, em có nhận xét gì 
 Ép kiểu trong javascript:
 b là explicit coercion(rõ ràng) nhận biết rõ ràng typeof(b) là number
 c là implicit coercion(ép kiểu cưỡng ép) không rõ ràng
-```
+```Javascript
 var a = 10;
 var b = Number(a);
 var c = a * 1;
@@ -176,6 +176,7 @@ c;
 Khi một giá trị không phải boolean cần chuyển sang boolean gì chuyện gì xảy ra? v/d dưới sẽ log ra như nào?
 Khi so sánh == boolean được ép kiểu về dạng number
 V/d đầu tiên Number(b) = 0, Number(false) = 0 => a đúng.
+```Javascript
 var a = 10;
 var b = '';
 
@@ -186,6 +187,7 @@ if (a) {
 if (b) {
    console.log('b is truthy');
 }
+```
 # 14 Equality
 Có bao nhiêu equality operators? (=, ==, !=, !==)
 So sánh khác nhau giữa: = và ==
@@ -210,7 +212,7 @@ Javascript là 1 ngôn ngữ khá cẩu thả và lỏng lẻo, vì vậy mà st
 # 20 Functions as Values
 Set đoạn code sau, em có nhận xét gì ?
 Ta có thể gán hàm như là một biến
-```
+```Javascript
 var f = function() { }
 
 var g = function abc() { }
@@ -224,7 +226,7 @@ Xem xét đoạn code sau, em có nhận xét gì ?
 Hàm nó vừa gọi vừa thực thi luôn.
 Gọi hàm bằng biểu thức nằm trong () đầu tiên.
 () thứ hai cho phép thực thi hàm ngay lập tức.
-```
+```Javascript
 function a() {
    console.log(abc);
 };

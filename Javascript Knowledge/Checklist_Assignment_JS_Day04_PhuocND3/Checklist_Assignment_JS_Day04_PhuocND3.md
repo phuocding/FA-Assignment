@@ -13,7 +13,7 @@ Cho hàm setTimeout có định nghĩa như sau: [met win setTimeout()](https://
 Set đoạn code sau, hãy mô tả chính xác những gì xảy ra và kết quả in ra là gì ?
 <p>Log ra "Hi", sau đó 1s log ra "there"</p>
 
-```
+```Javascript
 console.log('Hi');
 
 setTimeout(function () {
@@ -24,7 +24,7 @@ setTimeout(function () {
 How about this one, can you guess ?
 <p>log ra "hi" rồi "hi again" rồi mới log ra "there"</p>
 
-```
+```Javascript
 console.log('Hi');
 
 setTimeout(function () {
@@ -50,7 +50,7 @@ Tìm hiểu về Event loop, và giải thích lại đoạn code trên theo ý 
 <p>Vì trong setTimeout có anynomous function => đưa vào callbacks queue -> được event loop đưa qua stack để thực thi</p>
 (1) => (3) => (2)
 
-```
+```Javascript
 // (1)
 setTimeout(function () {
   // (2)
@@ -61,7 +61,8 @@ setTimeout(function () {
 #### 1.4.1 Nested/Chained Callbacks
 Set đoạn code sau, khi người dùng click vào btn thì điều gì xảy ra?
 <p>(0) se thuc thi ngay lap tuc => khi click (1) ->((3)->(2))</p>
-```
+
+```Javascript
 // (0)
 var btn = document.getElementById('btn');
 btn.addEventListener('click', function () {
