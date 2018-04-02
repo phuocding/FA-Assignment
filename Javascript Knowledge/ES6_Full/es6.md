@@ -512,10 +512,13 @@ var defaults = {
   }
 };
 
-function response(/* TODO: object destructuring */) {
+function response(/* TODO: object destructuring 
+                    argument of callback cb*/
+                    foo, bar, bam: {qux}) {
 
   check({
-  /* TODO: object constructuring */
+  /* TODO: object constructuring
+  data can be default or callback */
   });
 
 }
