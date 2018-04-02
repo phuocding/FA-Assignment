@@ -397,13 +397,15 @@ g(...a, ...b); // ???
 ```
 1.6.8 Exercise: fix the following code so console.log will print true
 ```Javascript
-const f = (arg) => arg; 
+const f = (...arg) => arg; 
 
 function g() {
   var a1 = [2, 4];
   var a2 = [6, 8, 10, 12];
+  a1 = a1.splice(0, 1);
+  a2 = a2.splice(1, 3);
 
-  return f();
+  return f(...a1,...a2);
 }
 
 console.log(g().join("") === "281012"); // must print true
@@ -412,20 +414,69 @@ console.log(g().join("") === "281012"); // must print true
 
 ## Destructuring
 1.7.1 What is destructuring ? Example ?
+> `Dùng Destructuring để chuyển giá trị từng thuộc tính của đối tượng vào một biến. Điều này giúp giảm bớt việc dùng các biến tạm thời để lưu các thuộc tính trong đối tượng.`
+
 1.7.2 Can you use destructuring and default values together ? Provide example?
+> Dùng được destructuring lẫn default.
+```Javascript
+const Ob = {
+  name: 'Phuoc'
+}
+
+const {name= 'Tingfu', weakness= 'mind'} = Ob;
+console.log(name);
+console.log(weakness);
+```
+
 1.7.3 Dumping values: provide example that extract the 3rd element in an array and don't care about the 1st, 2nd element ? Provide example that swap 2 numbers ?
+```Javascript
+const arr = [1,2,3];
+const [,,a] = arr;
+console.log(a);
+```
+```javascript
+const arr = [1,2];
+let [a,b] = arr;
+console.log(a);
+console.log(b);
+[a,b] = [b,a];
+console.log(a);
+console.log(b);
+```
+
 1.7.4 Nested Array Destructuring: in case we have an array like this [[1, 2], [3, 4], [5, 6]] use destructuring to extract the number 1 to variabled called a
+```javascript
+const arr = [[1, 2], [3, 4], [5, 6]];
+const [[a,]] = arr;
+console.log(a); // 1
+```
+
 1.7.5 Object Destructuring: provide an example that use destructuring to extract property in an object ?
+```javascript
+const obj = {
+  name: 'Phuoc',
+  career: 'dev'
+}
+const {name, career} = obj
+console.log(name);
+```
+
 1.7.6 Nested Object Destructuring: in case we have an object like this { nested: { a: 10 } }, provide an example that use destructuring to extract value of a in inside nested object
+```javascript
+const obj = { nested: { a: 10 } };
+const {nested: {a}} = obj;
+console.log(a);
+```
+
 1.7.7 Destructuring and Function Parameters: consider the array destructuring for parameters what will be printed out ?
 ```Javascript
 function fn([ x, y ]) {
   console.log(x, y);
 }
 
-fn([ 1, 2 ]); // ??
-fn([ 1 ]); // ??
-fn([ ]); // ??
+fn([ 1, 2 ]); // 1 2
+fn([ 1 ]); // 1 undefined
+fn([ ]); // undefined undefined
 ```
 1.7.8 Exercise: practice object destructuring, object constructuring
 ```Javascript
@@ -602,14 +653,17 @@ console.log(
 1.19.1 Symbols: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
 what is symbols ? provide same
 Well-known Symbols?
+
 1.19.2 Iterators: study about Iterators (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
 What is Iterators ?
 What is the Interface of Iterators ?
 Provide an example using Iterator ?
 Creating a Custom Iterators
+
 1.19.3 Generators
 What is Generators ? What is syntax to create a generator ? How you execute a generator ? How we handle errors in generator ?
 Where do you think we should use generator ?
+
 1.19.4 Exercise
 ```Javascript
 var numbers = {
