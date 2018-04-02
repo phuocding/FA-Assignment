@@ -78,7 +78,7 @@ var f = ([a, b] = [1, 2], {x: c} = {x: a + b}) => a + b + c; f(); // 6
 ```
 
 1.3.2 Compare arrow function syntax to ES5 function syntax ?
-> Có thể viết trên 1 dòng, cú pháp tường minh(short and concise) hơn, this sẽ trỏ tới chính object, không bị bind nhầm.
+> `Có thể viết trên 1 dòng, cú pháp tường minh(short and concise) hơn, this sẽ trỏ tới chính object, không bị bind nhầm.`
 
 1.3.3 Arrow function variations, try them in Babel Repl, fix error if any
 ```Javascript
@@ -98,12 +98,12 @@ const f7 = x => ({
 })
 ```
 1.3.4 True or false: arrow functions are anonymous ?
-> Arrow functions are always anonymous expression.
+> `Arrow functions are always anonymous expression.`
 ```Javascript
 const myFunc = x => 4;
 console.log(myFunc.name);
 ```
-1.3.5 Disadvantages: lost reference outside callback, hard to debug in stack strace
+1.3.5 Disadvantages: `lost reference outside callback, hard to debug in stack strace`
 1.3.6 this
 Evaluate the code below, can you explain what happens ?
 > `obj.method() log undefined vì this đang nằm trong 1 hàm vô danh và không rõ ràng là được gọi ở đâu, nó chỉ được difined trong hàm setTimeout nên mặc định trỏ tới window.`
@@ -181,7 +181,58 @@ p.then(v => v.id);
 
 ## Classes
 1.4.1 Provide an example to create a new classed named Person which have 2 fields: id, name and 1 method: sayHello which print hello to the console
+```Javascript
+class Person {
+    constructor() {
+        this.id = name;
+        this.name = name;
+    }
+    sayHello() {
+        console.log("hello");
+    }
+}
+const fiance = new Person();
+fiance.sayHello();
+```
+
 1.4.2 What is keyword extends and super, provide an example that used both keyword ?
+> `extends khi class con cần kế thừa thuộc tính và phương thức từ một class cha hoặc thậm chí là một function.`
+```Javascript
+class Animal {
+
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+
+  run(speed) {
+    this.speed += speed;
+    alert(`${this.name} runs with speed ${this.speed}.`);
+  }
+
+  stop() {
+    this.speed = 0;
+    alert(`${this.name} stopped.`);
+  }
+
+}
+
+// Inherit from Animal
+class Rabbit extends Animal {
+  hide() {
+    alert(`${this.name} hides!`);
+  }
+}
+
+let rabbit = new Rabbit("White Rabbit");
+
+rabbit.run(5);
+rabbit.hide();
+```
+> `super.method(...) được dùng để gọi 1 method() của class cha.`
+
+> `super(...) được dùng để gọi 1 constructor trong class cha.`
+
 1.4.3 Consider the following code, what will be printed out?
 ```Javascript
 class Cha {
@@ -197,6 +248,7 @@ class Con extends Cha {
     console.log('Con', this.id)
   }
 }
+// Cha A & Con a.
 ```
 1.4.4 What is static keyword ?
 
@@ -209,7 +261,7 @@ class Con extends Cha {
 > *let* `will not hoist to the entire scope of the block they appear in`
 
 1.5.2 Closures scope, how do let work in closures, try example below
-> *let* trong clossure scope không thể hoist được nên mỗi lần let i thì sẽ tạo một block scope cho biến i có giá trị tương ứng.
+> ***`let`*** `trong clossure scope không thể hoist được nên mỗi lần let i thì sẽ tạo một block scope cho biến i có giá trị tương ứng.`
 ```Javascript
 for (let i = 0; i < 3; i++) {
   let btn = document.getElementById('btn' + i);
@@ -255,7 +307,31 @@ console.log((x * 2) === fns[x*2]())
 **[⬆ back to top](#es6)**
 
 ## Default Values and the Gather Spread Operator
-1.6.1 Default Values: how to define a functon with default value in ES6 ? And in ES6 ?
+1.6.1 Default Values: how to define a functon with default value in ES5 ? And in ES6 ?
+```Javascript
+//ES5
+function multiply(a, b) {
+  b = (typeof b !== 'undefined') ?  b : 1;
+  return a * b;
+}
+
+multiply(5, 2); // 10
+multiply(5, 1); // 5
+multiply(5);    // 5
+```
+
+```Javascript
+//ES6
+function multiply(a, b = 1) {
+  return a * b;
+}
+
+multiply(5, 2); // 10
+multiply(5, 1); // 5
+multiply(5);    // 5
+```
+> `Qua 2 example này có thể nhận ra default value là giá trị mặc định mà ta gán cho biến và sử dụng value đó nếu không thay đổi giá trị của biến.này có thể nhận ra default value là giá trị mặc định mà ta gán cho biến và sử dụng value đó nếu không thay đổi giá trị của biến.`
+
 1.6.2 Lazy expression, evaluate the following code, how many times g have been called ?
 ```Javascript
 function g() {
@@ -265,9 +341,9 @@ function g() {
 function f(x = g()) {
 }
 
-f(1);
-f();
-f();
+f(1); // f(1) => x = 1 => ko gọi ra undefined
+f(); // f() => x = g() => gọi g console.log ra g
+f(); // f() => default x = g() => gọi g console.log ra g
 ```
 1.6.3 Evaluate the following code
 ```Javascript
@@ -278,9 +354,30 @@ function f(x = 2, fn = function() { return x }) {
 }
 
 f();
+// gọi f() không truyền tham số => 
+// default là x = 2, fn = function() { return x } =>
+// log fn() => return ra x => x không có trong scope của fn => 
+// x có trong scope cỉa f =>
+// return 2
 ```
 1.6.4 What's a variadic arguments?
+```javascript
+const abccc = (a, b, ...c) => {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+};
+
+abccc(1, 2, 3, 4, 5)
+  1
+  2
+  [3,4,5]
+```
+> ***variadic arguments*** `truyền nhiều đối số vào chung một tham số => array.`
+
 1.6.5 What is arguments in a JavaScript function ?
+> là đối số truyền giá trị vào tham số.
+
 1.6.6 … operator can be used in 2 differents ways, see code below:
 ```Javascript
 function f(...args) { // gather arguments
@@ -297,8 +394,10 @@ var a = [1, 2, 3];
 var b = [4, 5, 6];
 
 g(...a, ...b); // ???
+```
 1.6.8 Exercise: fix the following code so console.log will print true
-function f() { }
+```Javascript
+const f = (arg) => arg; 
 
 function g() {
   var a1 = [2, 4];
