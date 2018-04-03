@@ -5,7 +5,7 @@
 1. [Classes](#classes)
 1. [Block Scope: let + const](#block-scope)
 1. [Default Values and the Gather/Spread Operator](#default-values-and-the-gather-spread-operator)
-1. [Destructuring](#destructing)
+1. [Destructuring](#destructuring)
 1. [Object Literal Extensions](#object-literal-extensions)
 1. [Template Strings](#template-strings)
 1. [Modules](#modules)
@@ -512,13 +512,11 @@ var defaults = {
   }
 };
 
-function response(/* TODO: object destructuring 
-                    argument of callback cb*/
-                    foo, bar, bam: {qux}) {
+function response({foo: x, baz: y, bam: {qux: z, qam: 0}}) {
 
   check({
-  /* TODO: object constructuring
-  data can be default or callback */
+    defaults.foo + x,
+    defaults.bar
   });
 
 }
@@ -540,8 +538,8 @@ var o2 = {
   x,
   y
 }
-console.log(o1); // ??
-console.log(o2); // ??
+console.log(o1); // ?? x:2, y: 3
+console.log(o2); // ?? x:2, y: 3
 ```
 1.8.2 Concise Methods: consider the following code what do you think ?
 ```Javascript
