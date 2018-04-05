@@ -1,7 +1,3 @@
-## **ES2015**
-> Wherefore Art Thou
-
-```javascript
 const whatIsInAName = (collection, source) => {
     // What's in a name?
     let arr = [];
@@ -17,7 +13,7 @@ const whatIsInAName = (collection, source) => {
     // khớp thì return ra một mảng mới chứa Object có trùng key value
     return collection.filter((item) => {
 
-        for (let keyS of sourceKey) { // replace for loop
+        for (let keyS of sourceKey) {
 
             if (item.hasOwnProperty(keyS) && item[keyS] == source[keyS]) {
                 result = true;
@@ -29,5 +25,3 @@ const whatIsInAName = (collection, source) => {
     // Only change code above this line
 }
 whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
-
-```
