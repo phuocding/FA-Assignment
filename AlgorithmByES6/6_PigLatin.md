@@ -8,7 +8,17 @@
 	- đưa các phụ âm ra sau string và add hậu tố 'ay'
 + Nếu đứng đầu là nguyên âm
 	- add hậu tố 'way' ra sau string`
+```Javascript
+function translatePigLatin(str) {
+  function check(obj) {
+      return ['a','i','u','e','o'].indexOf(str.charAt(obj)) == -1 ? check(obj + 1) : obj;
+  }
 
+  return str.substr(check(0)).concat((check(0) === 0 ? 'w' : str.substr(0, check(0))) + 'ay');
+};
+
+translatePigLatin("Cconsonant");
+```
 ### *Cách này thực sự không nghĩ ra*
 ```Javascript
 const translatePigLatin = (str) => {
