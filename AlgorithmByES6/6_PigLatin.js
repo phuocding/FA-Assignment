@@ -18,8 +18,20 @@
 // }
 // })();
 
+// Cách này đã rút gọn đi rất nhiều
+
+const translatePigLatin1 = (str) => {
+  const check = (obj) => {
+      return ['a','i','u','e','o'].indexOf(str.charAt(obj)) == -1 ? check(obj + 1) : obj;
+  }
+
+  return str.substr(check(0)).concat((check(0) === 0 ? 'w' : `${str.substr(0, check(0)))}ay`);
+};
+
+translatePigLatin1("Cconsonant");
+
 // Cách này thực sự không nghĩ ra
-const translatePigLatin = (str) => {
+const translatePigLatin2 = (str) => {
     let letters = str.split("");
     let vowelRegex = /[aeiou]/;
 
@@ -40,4 +52,4 @@ const translatePigLatin = (str) => {
     return str;
 };
 
-translatePigLatin("Cconsonant");
+translatePigLatin2("Cconsonant");
